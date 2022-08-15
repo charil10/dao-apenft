@@ -2,7 +2,7 @@ import React, {useEffect, useState, useRef, PropsWithChildren} from 'react';
 import { isString } from 'lodash-es';
 import {JsonRpcProvider} from "@ethersproject/providers/src.ts/json-rpc-provider";
 import {toHex} from "../../burn/utils";
-import {config} from "../../burn/config";
+import {config} from "../../mint/config";
 import nftABI from "../../burn/abis/nft.json";
 
 export interface Web3ContextValue {
@@ -71,6 +71,8 @@ export const Web3ContextProvider = (props: PropsWithChildren) => {
       const hex = tronWeb?.defaultAddress?.hex
 
       console.log('account' , account);
+
+      console.log(nftABI, config.NFT);
 
       const nft = await tronWeb?.contract?.(nftABI, config.NFT)
 
