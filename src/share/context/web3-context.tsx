@@ -66,9 +66,9 @@ export const Web3ContextProvider = (props: PropsWithChildren) => {
   const load= async () => {
     console.log('load');
     try {
-      const account = tronWeb?.defaultAddress?.base58
-      console.log(account);
-      const hex = tronWeb?.defaultAddress?.hex
+      const account = tronLink?.tronWeb?.defaultAddress?.base58
+      console.log(account, tronLink?.tronWeb?.defaultAddress);
+      const hex = tronLink?.tronWeb?.defaultAddress?.hex
       // console.log('account' , account);
       // console.log(nftABI, config.NFT);
       try {
