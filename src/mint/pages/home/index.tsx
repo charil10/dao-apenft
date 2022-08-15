@@ -54,7 +54,7 @@ function Home() {
 
   useEffect(() => {
     load(hex)
-  },[hex, chainId])
+  },[account, hex, chainId, nft])
 
   const label = useMemo(() => {
     if(amount <= 1 && totalSupply< 2500 && minted ===0 ) {
