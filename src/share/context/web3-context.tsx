@@ -4,7 +4,6 @@ import {JsonRpcProvider} from "@ethersproject/providers/src.ts/json-rpc-provider
 import {toHex} from "../../burn/utils";
 import {config} from "../../burn/config";
 import nftABI from "../../burn/abis/nft.json";
-import auctionABI from "../../burn/abis/auction.json";
 
 export interface Web3ContextValue {
   chainId?: number,
@@ -19,20 +18,18 @@ export interface Web3ContextValue {
 }
 
 const provider = window.tronLink;
-
+const tronLink = window.tronLink
+const tronWeb = window.tronLink?.tronWeb
 
 const switchNetwork = async (chainId?: number) => {
   if(chainId != 1) {
-    await provider.send('wallet_switchEthereumChain', [{ chainId: toHex(1) }]);
+    await tronLink.request('wallet_switchEthereumChain', [{ chainId: toHex(1) }]);
   }
 }
 
 const connect = async () => {
-  await provider.send("tron_requestAccounts", []);
+  await tronLink.request({method: 'tron_requestAccounts'})
 }
-
-const tronLink = window.tronLink
-const tronWeb = window.tronLink?.tronWeb
 
 // const nft = new tronWeb.contract(nftABI, config.NFT)
 // const auction = new ethers.Contract(config.AUCTION, auctionABI, provider)
@@ -77,13 +74,14 @@ export const Web3ContextProvider = (props: PropsWithChildren) => {
 
       const nft = await tronWeb?.contract(nftABI, config.NFT)
 
-      console.log(nft, 'nft');
-
+      const host = tronWeb?.fullNode?.host || '';
+      const chainId = host.includes('tronstack') || host.includes('trongrid') ? 1 : 9999
       if(account) {
         updateContext?.({
           account: account.toLowerCase(),
           hex: hex.toLowerCase(),
           nft,
+          chainId,
           // auction,
         } as Partial<Web3ContextValue>)
       }
@@ -110,7 +108,6 @@ export const Web3ContextProvider = (props: PropsWithChildren) => {
       console.log(action);
       if (e.data.message && action) {
           console.log("setAccount event", e.data.message)
-          console.log("current address:", e.data.message.data.address)
           load()
       }
       // if (e.data.message && e.data.message.action == "tabReply") {

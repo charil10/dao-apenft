@@ -163,11 +163,6 @@ function Home() {
                 </Button>
               }
               {
-                chainId && chainId !== 1 && <Button className="home-button" onClick={switchNetwork}>
-                  SWITCH NETWORK
-                </Button>
-              }
-              {
                 account && <>
                   {status == 0 && <Button className="home-button" disabled>NOT STARTED</Button>}
                   {status == 1 && isAllowlist && <Button className="home-button" onClick={handleAllowlistMint} disabled={minted>=2 || amount<=0}>{

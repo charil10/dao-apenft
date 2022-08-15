@@ -15,10 +15,10 @@ import { truncateAddress } from "./utils";
 import mp4 from "./assets/demo.mp4";
 import cover from "./assets/cover.jpg";
 
-const tronWeb = window.tronLink?.tronWeb
+const tronLink = window.tronLink
 
 function App() {
-  const {account, chainId, connect, switchNetwork} = useContext(Web3Context)
+  const {account, chainId, connect} = useContext(Web3Context)
   const correct = chainId === 1
   return (
       <div>
@@ -29,17 +29,17 @@ function App() {
               <a className="link" href="https://twitter.com/HeartHunterDAO" target="_blank">Twitter</a>
               <a className="link-apenft" href="http://apenft.org/" target="_blank" title="apenft"></a>
               {
-                  !tronWeb && <Button><a href="https://www.tronlink.org/" target="_blank">Install TronLink</a></Button>
+                  !tronLink && <Button><a href="https://www.tronlink.org/" target="_blank">Install TronLink</a></Button>
               }
 
               {
-                  !!tronWeb && (correct || !account) && <Button size="S" onClick={account ? () => {} : connect} >
+                  !!tronLink && (correct || !account) && <Button size="S" onClick={account ? () => {} : connect} >
                     {account ? truncateAddress(account) : 'CONNECT WALLET'}
                   </Button>
               }
               {
-                  !!tronWeb && !correct && chainId && <Button size="S" onClick={switchNetwork} danger >
-                    SWITCH NETWORK
+                  !!tronLink && !correct && <Button size="S" danger >
+                    SWITCH MAINNET
                   </Button>
               }
             </div>
