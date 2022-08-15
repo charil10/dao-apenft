@@ -66,27 +66,30 @@ export const Web3ContextProvider = (props: PropsWithChildren) => {
   const load= async () => {
     console.log('load');
     try {
-
       const account = tronWeb?.defaultAddress?.base58
       const hex = tronWeb?.defaultAddress?.hex
-
-      console.log('account' , account);
-
-      console.log(nftABI, config.NFT);
-
-      const nft = await tronWeb?.contract?.(nftABI, config.NFT)
-
-      const host = tronWeb?.fullNode?.host || '';
-      console.log(host);
-      const chainId = host.includes('shasta') || host.includes('nileex') ? 9999: 1
-      if(account) {
-        updateContext?.({
-          account: account.toLowerCase(),
-          hex: hex.toLowerCase(),
-          nft,
-          chainId,
-          // auction,
-        } as Partial<Web3ContextValue>)
+      // console.log('account' , account);
+      // console.log(nftABI, config.NFT);
+      try {
+        const nft = await tronWeb?.contract?.(nftABI, config.NFT)
+        const host = tronWeb?.fullNode?.host || '';
+        const chainId = host.includes('shasta') || host.includes('nileex') ? 9999: 1
+        if(account) {
+          updateContext?.({
+            account: account.toLowerCase(),
+            hex: hex.toLowerCase(),
+            nft,
+            chainId,
+            // auction,
+          } as Partial<Web3ContextValue>)
+        }
+      } catch (e) {
+        if(account) {
+          updateContext?.({
+            account: account.toLowerCase(),
+            hex: hex.toLowerCase(),
+          } as Partial<Web3ContextValue>)
+        }
       }
     }catch (e) {
       console.log(e, 'error!!!!!');
