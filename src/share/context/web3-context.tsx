@@ -67,6 +67,7 @@ export const Web3ContextProvider = (props: PropsWithChildren) => {
     console.log('load');
     try {
       const account = tronWeb?.defaultAddress?.base58
+      console.log(account);
       const hex = tronWeb?.defaultAddress?.hex
       // console.log('account' , account);
       // console.log(nftABI, config.NFT);
@@ -111,10 +112,11 @@ export const Web3ContextProvider = (props: PropsWithChildren) => {
       if(!action || action === 'tabReply' || action === 'tunnel') {
         return
       }
-      console.log(action);
       if (e.data.message && action) {
-          console.log("setAccount event", e.data.message)
-          load()
+          console.log(action, e.data.message)
+          setTimeout(() => {
+            load()
+          }, 100)
       }
       // if (e.data.message && e.data.message.action == "tabReply") {
       //   console.log("tabReply event", e.data.message)
