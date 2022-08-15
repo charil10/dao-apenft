@@ -31,6 +31,7 @@ function Home() {
     if(!nft) {
       return
     }
+
     console.log('load nft', address);
     try {
       const max = (await nft.maxSupply().call({_isConstant:true})).toNumber();
