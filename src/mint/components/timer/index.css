@@ -1,0 +1,17 @@
+.ui-timer {
+    display: flex;
+    font-size: 30px;
+    max-width: 390px;
+    height: 60px;
+    background: #fff;
+    border-radius: 11px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.timer-item {
+
+}

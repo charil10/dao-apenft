@@ -1,0 +1,52 @@
+.ui-button {
+    background-color: #000;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.ui-button-size-L {
+    padding: 0 30px;
+    height: 60px;
+    font-size: 22px;
+}
+
+.ui-button-size-M {
+    padding: 0 12px;
+    height: 52px;
+    font-size: 18px;
+}
+
+.ui-button-size-S {
+    padding: 0 12px;
+    height: 48px;
+    font-size: 16px;
+}
+
+
+
+.ui-button:not([disabled]):hover {
+    background-color: #222;
+}
+
+.ui-button-danger {
+    background-color: #D5A7A7;
+}
+
+.ui-button-danger:before {
+    background-color: #D2BDBD;
+}
+.ui-button-danger:after {
+    background-color: #A17A7A;
+}
+.ui-button-danger:not([disabled]):hover {
+    background-color: #C89797;
+}
+
+.ui-button[disabled] {
+    cursor: not-allowed;
+}

@@ -1,0 +1,42 @@
+.ui-number-input {
+    display: inline-flex;
+    height: 44px;
+}
+
+.ui-number-input .select {
+    padding: 0 20px;
+    background-color: #fff;
+    margin: 0 -5px;
+}
+.ui-number-input select {
+    text-align: center;
+    border: 0 none;
+    outline: none;
+    font-weight: 500;
+    font-size: 18px;
+    width: 200px;
+    height: 100%;
+}
+
+.input-minus,
+.input-plus {
+    height: 44px;
+    width: 44px;
+    background: url('src/mint/components/number-input/minus.png') no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    transition: all ease .3s;
+    transform-origin: center;
+}
+
+.input-minus:hover,
+.input-plus:hover {
+    opacity: .6;
+    transform: scale(1.06);
+}
+
+.input-plus {
+    background-image: url('src/mint/components/number-input/plus.png');
+}
