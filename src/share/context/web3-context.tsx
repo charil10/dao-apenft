@@ -72,7 +72,7 @@ export const Web3ContextProvider = (props: PropsWithChildren) => {
 
       console.log('account' , account);
 
-      const nft = await tronWeb?.contract(nftABI, config.NFT)
+      const nft = await tronWeb?.contract?.(nftABI, config.NFT)
 
       const host = tronWeb?.fullNode?.host || '';
       console.log(host);
