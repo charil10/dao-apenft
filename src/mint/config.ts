@@ -1,3 +1,3 @@
 export const config = {
-  NFT: 'TWxhhdud4ZDeJc8fN888Yju3Gt96kH1nin',
+  NFT: 'TEacYh5LpuBQK5G5kpoJ8DGpe3wYnfTdEV',
 }
