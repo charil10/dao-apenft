@@ -75,7 +75,8 @@ export const Web3ContextProvider = (props: PropsWithChildren) => {
       const nft = await tronWeb?.contract(nftABI, config.NFT)
 
       const host = tronWeb?.fullNode?.host || '';
-      const chainId = host.includes('tronstack') || host.includes('trongrid') ? 1 : 9999
+      console.log(host);
+      const chainId = host.includes('shasta') || host.includes('nileex') ? 9999: 1
       if(account) {
         updateContext?.({
           account: account.toLowerCase(),
