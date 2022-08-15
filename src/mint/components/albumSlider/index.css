@@ -11,7 +11,7 @@
 }
 
 .swiper-prev {
-  background-image: url(src/mint/assets/prev.png);
+  background-image: url(../../assets/prev.png);
   background-position: center center;
   background-size: 24px 24px;
   width: 24px;
@@ -20,7 +20,7 @@
 }
 
 .swiper-next {
-  background-image: url(src/mint/assets/next.png);
+  background-image: url(../../assets/next.png);
   background-position: center center;
   background-size: 24px 24px;
   width: 24px;

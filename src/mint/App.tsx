@@ -20,7 +20,7 @@ const tronLink = window.tronLink
 function App() {
   const {account, chainId, connect} = useContext(Web3Context)
   const correct = chainId === 1
-  return (
+    return (
       <div>
         <div className="main">
           <header>
@@ -38,7 +38,7 @@ function App() {
                   </Button>
               }
               {
-                  !!tronLink && !correct && <Button size="S" danger >
+                  !!tronLink && chainId && !correct && <Button size="S" danger >
                     SWITCH MAINNET
                   </Button>
               }
