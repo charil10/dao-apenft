@@ -27,7 +27,7 @@ function App() {
             <div className='logo' />
             <div className="header-actions">
               <a className="link" href="https://twitter.com/HeartHunterDAO" target="_blank">Twitter</a>
-              <a className="link-apenft" href="http://apenft.org/" target="_blank" title="apenft"></a>
+              <a className="link-apenft" href="https://apenft.io/collections/love-loves" target="_blank" title="apenft"></a>
               {
                   !tronLink && <Button><a href="https://www.tronlink.org/" target="_blank">Install TronLink</a></Button>
               }
